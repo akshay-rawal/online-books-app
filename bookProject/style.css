@@ -1,0 +1,240 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+}
+
+/* Default Grid View */
+.book-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 30px;
+    margin-top: 90px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    position: relative;
+}
+
+/* Vertical List View */
+.list-view {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    width: 100%;
+}
+
+/* Book Card */
+.books {
+    width: 100%;
+    max-width: 300px;
+    min-height: 320px;
+    background: #b7410e; 
+    border: 1px solid white;
+    border-radius: 17px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.5s;
+    user-select: none;
+    font-weight: bolder;
+    padding-bottom: 0; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Remove black background from text */
+.books * {
+    background-color: transparent;
+}
+
+/* Image should fit full width inside card */
+.books img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-top-left-radius: 17px;
+    border-top-right-radius: 17px;
+}
+
+/* Book Details Box */
+.book-details {
+    padding: 10px;
+    border-bottom-left-radius: 17px;
+    border-bottom-right-radius: 17px;
+    text-align: left; /
+}
+
+/* Title Styling */
+.book-details h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: black;
+    text-align: center; 
+}
+
+/* Text inside the box */
+.book-details p {
+    font-size: 14px;
+    color: black;
+    margin: 5px 0;
+    text-align: left;
+}
+
+/* Bold labels */
+.book-details p strong {
+    font-weight: 600;
+}
+
+/* List View Adjustments */
+.list-view .books {
+    max-width: 500px;
+    min-height: auto;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px;
+    margin-top: 50px;
+    width: 90%;
+}
+
+.list-view .books img {
+    width: 120px;
+    height: 120px;
+    border-radius: 10px;
+}
+
+/* Button Styles */
+button {
+    margin: 10px;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    border: none;
+    background: #b7410e;
+    color: white;
+    border-radius: 5px;
+}
+
+button:hover {
+    background: #8d320c;
+}
+
+/* Input Styles */
+#input {
+    border-radius: 20px;
+    outline: 2px solid #8d320c;
+    width: 15%;
+    border: 0;
+    background-color: #e2e2e2;
+    outline-offset: 3px;
+    padding: 10px 1rem;
+    transition: 0.25s;
+    margin-left: 40%;
+    margin-top: 50px;
+}
+
+#input:focus {
+    outline-offset: 5px;
+    background-color: #fff;
+}
+
+#input::placeholder {
+    text-align: center;
+}
+
+/* No Content Message */
+#no-content {
+    display: none;
+    color: #b7410e;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Top-Right Button Container */
+#top-right {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+/* Prev & Next Buttons */
+.btns {
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    bottom: 20px;
+    left: 0;
+    width: 100%;
+    padding: 0 20px;
+}
+
+/* Fixed Buttons in List View */
+#prevbtn {
+    position: fixed;
+    left: 20px;  
+    bottom: 20px;
+}
+
+#nextbtn {
+    position: fixed;
+    right: 20px; 
+    bottom: 20px;
+}
+
+/* Toggle Grid/Vertical Button */
+#toggleBtn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+
+/* Hide Grid Button when Grid is Active */
+.book-cards:not(.list-view) #toggleBtn.grid {
+    display: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .book-cards {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 15px;
+    }
+
+    .books {
+        max-width: 250px;
+    }
+
+    .list-view .books {
+        max-width: 90%;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .list-view .books img {
+        width: 100px;
+        height: 100px;
+    }
+
+    #input {
+        width: 80%;
+        margin-left: 10%;
+    }
+
+    /* Adjust Button Positions for Mobile */
+    #prevbtn {
+        left: 50px;
+        bottom: 20px;
+    }
+    
+    #nextbtn {
+        right: 50px;
+        bottom: 20px;
+    }   
+}
