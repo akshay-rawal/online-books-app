@@ -54,9 +54,7 @@
 
 /* Image should fit full width inside card */
 .books img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
+    object-fit:cover;
     border-top-left-radius: 17px;
     border-top-right-radius: 17px;
 }
