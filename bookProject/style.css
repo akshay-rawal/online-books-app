@@ -171,7 +171,15 @@ button:hover {
     left: 0;
     width: 100%;
     padding: 0 20px;
+    border-radius: 10px;
 }
+.book-details h3 {
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: black;
+    text-align: center; 
+}
+
 
 /* Fixed Buttons in List View */
 #prevbtn {
@@ -199,25 +207,26 @@ button:hover {
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+@media (max-width: 668px) {
     .book-cards {
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      display: flex;
+      flex-direction: column;
+      align-items: center;        
         gap: 15px;
+        margin-top:40px;
     }
 
     .books {
-        max-width: 250px;
+        max-width: 230px;
+            height: 350px;
+            margin-bottom: 50px;
+        
     }
-
-    .list-view .books {
-        max-width: 90%;
-        flex-direction: column;
-        text-align: center;
+    .books img{
+        width: 30%;
     }
-
-    .list-view .books img {
-        width: 100px;
-        height: 100px;
+    #toggleBtn{
+        display: none;
     }
 
     #input {
@@ -225,14 +234,46 @@ button:hover {
         margin-left: 10%;
     }
 
-    /* Adjust Button Positions for Mobile */
-    #prevbtn {
-        left: 50px;
-        bottom: 20px;
+    
+    ..btns {
+        position: fixed;
+        bottom: 20px;  
+        transform: translateX(-50%);
+        display: flex;
+       
     }
     
-    #nextbtn {
-        right: 50px;
-        bottom: 20px;
-    }   
+    #prevbtn, #nextbtn {
+        width: 30px; 
+        height: 30px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        align-items: center; 
+        justify-content: center;
+        padding: 0;
+    
+    }
+    #nextbtn{
+        margin: 30px 0 0 10px;
+
+    }
+    #prevbtn{
+        margin: 20px 30px 0 0;
+    }
+   
+    #nextbtn::after{
+        content: " →";
+
+        
+    }
+    #prevbtn::before {
+        content: "← ";  
+    }
+   
+    #prevbtn span, #nextbtn span {
+        display: none;
+    }
+    
 }
+
