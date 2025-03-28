@@ -7,13 +7,13 @@ const container = document.getElementById("container");
 const prevBtn = document.getElementById("prevbtn");
 const nextBtn = document.getElementById("nextbtn");
 const toggleBtn = document.getElementById("toggleBtn");
-
+    //set varaible globally for reuse in any function
 let currentIndex = 1;
 let itemsPerPage = 3;
 let neededDatas = [];
 let booksMaintain = [];
 let isGrid = true;
-
+     // fetch data from api
 async function bookHandler() {
   const url = "https://api.freeapi.app/api/v1/public/books";
   try {
@@ -21,7 +21,7 @@ async function bookHandler() {
     if (!response.ok) {
       throw new Error("Data is not available");
     }
-
+    // map over datas for neededdata
     const result = await response.json();
     neededDatas = result.data.data
       .map((data) => ({
@@ -32,12 +32,13 @@ async function bookHandler() {
         thumbnail: data.volumeInfo.imageLinks?.smallThumbnail || "",
         infoLink: data.volumeInfo.infoLink,
       }))
+      //sort item by their title name and publish date 
       .sort((a, b) => {
         const titleCompare = a.title.localeCompare(b.title);
         if (titleCompare !== 0) return titleCompare;
         return new Date(a.publishedDate) - new Date(b.publishedDate);
       });
-
+      // create HTML and merge into container
     booksMaintain = neededDatas.map(
       (data) =>
         `<div class="books" data-title="${data.title}" data-authors="${data.authors}">
@@ -114,7 +115,7 @@ function paginationBtn() {
 
 noContent.style.display = "none";
 
-// Search Functionality
+// check user input value with database
 input.addEventListener("input", () => {
   const searchQuery = input.value.toLowerCase().replace(/\s+/g, "");
   const words = searchQuery.split(" ").filter((word) => word.length > 0);

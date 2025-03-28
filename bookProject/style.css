@@ -153,16 +153,6 @@ button:hover {
     text-align: center;
 }
 
-/* Top-Right Button Container */
-#top-right {
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    display: flex;
-    gap: 10px;
-}
-
-/* Prev & Next Buttons */
 .btns {
     display: flex;
     justify-content: space-between;
